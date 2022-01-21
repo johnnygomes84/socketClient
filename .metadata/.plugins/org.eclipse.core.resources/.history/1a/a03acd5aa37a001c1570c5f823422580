@@ -16,13 +16,7 @@ public class TCPClient {
 			String clientMessage = "", serverMessage = "";
 
 			while (true) {
-				serverMessage = inStream.readUTF();
-				System.out.println(serverMessage);
-
 				clientMessage = br.readLine();
-				outStream.writeUTF(clientMessage);
-				outStream.flush();
-				
 
 				if (clientMessage.equalsIgnoreCase("bye mate")) {
 					outStream.writeUTF(clientMessage);
@@ -34,6 +28,10 @@ public class TCPClient {
 
 				}
 
+				outStream.writeUTF(clientMessage);
+				outStream.flush();
+				serverMessage = inStream.readUTF();
+				System.out.println(serverMessage);
 			}
 
 			outStream.close();
