@@ -1,0 +1,5 @@
+package com.socket.client;
+
+public class Client {
+
+}
